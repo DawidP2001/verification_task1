@@ -1,4 +1,4 @@
-package Task3.cm;
+package cm;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -32,6 +32,9 @@ public class Rate {
         }
         if (!isValidPeriods(reducedPeriods, normalPeriods)) {
             throw new IllegalArgumentException("The periods overlaps");
+        }
+        if(kind == null){
+            throw new IllegalArgumentException("Kind can't be null");
         }
         this.kind = kind;
         this.hourlyNormalRate = normalRate;
@@ -91,6 +94,9 @@ public class Rate {
         return isValid;
     }
     public BigDecimal calculate(Period periodStay) {
+        if (periodStay == null){
+            throw new IllegalArgumentException("periodStay can't be null");
+        }
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
         if (this.kind==CarParkKind.VISITOR) return BigDecimal.valueOf(0);
