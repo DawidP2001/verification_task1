@@ -1,4 +1,4 @@
-package cm;
+package Task3.cm;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -20,6 +20,9 @@ public class Rate {
         }
         if (normalRate.compareTo(BigDecimal.ZERO) < 0 || reducedRate.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("A rate cannot be negative");
+        }
+        if (normalRate.compareTo(BigDecimal.valueOf(10)) > 0 || reducedRate.compareTo(BigDecimal.valueOf(10)) > 0) {
+            throw new IllegalArgumentException("A rate cannot be over 10");
         }
         if (normalRate.compareTo(reducedRate) <= 0) {
             throw new IllegalArgumentException("The normal rate cannot be less or equal to the reduced rate");
