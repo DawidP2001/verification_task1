@@ -67,11 +67,10 @@ public class Rate {
     private boolean isValidPeriods(ArrayList<Period> list) {
         boolean isValid = true;
         if (list.size() >= 2) {
-            Period secondPeriod;
             int i = 0;
             int lastIndex = list.size()-1;
             while (i < lastIndex && isValid) {
-                isValid = isValidPeriod(list.get(i), ((List<Period>)list).subList(i + 1, lastIndex+1));
+                isValid = isValidPeriod(list.get(i), list.subList(i + 1, lastIndex+1));
                 i++;
             }
         }
